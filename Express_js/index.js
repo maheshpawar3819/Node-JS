@@ -19,6 +19,12 @@ app.get("/banana", (req, res) => {
   res.send("this is the banana path");
 });
 
+app.get("/:username/:id", (req, res) => {
+  console.log(req.params);
+  const { username, id } = req.params;
+  res.send(`hello @${username}${id} `);
+});
+
 //when the rout can not match then show this default response
 app.get("*", (req, res) => {
   res.send("this is unknown path");
