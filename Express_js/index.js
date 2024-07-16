@@ -22,7 +22,10 @@ app.get("/banana", (req, res) => {
 app.get("/:username/:id", (req, res) => {
   console.log(req.params);
   const { username, id } = req.params;
-  res.send(`hello @${username}${id} `);
+  const response = `<h1>
+      hello @${username}${id}
+    </h1>`;
+  res.send(response);
 });
 
 //when the rout can not match then show this default response
