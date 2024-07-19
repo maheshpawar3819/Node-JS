@@ -7,7 +7,10 @@
   </head>
   <body>
     <!-- <h1>The Number is /* Math.floor(Math.random()*6)+1 </h1> -->
-     <h1>The Number is <%= data   %></h1>
-     <h1>The Number is <%= name   %></h1>
+    <h1>The Number is <%= data %></h1>
+    <% if(data ===6) { %>
+    <h1>Nice Roll Again...</h1>
+    <%} %>
+    <h1>The Number is <%= name %></h1>
   </body>
 </html>
