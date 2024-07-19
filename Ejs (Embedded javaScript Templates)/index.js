@@ -23,7 +23,13 @@ app.get("/", (req, res) => {
 app.get("/dice", (req, res) => {
   // lets assume that the data will come from database and we will sotore database in the variable
   let data = Math.floor(Math.random() * 6) + 1;
-  let name ="hii mahi"
+  let name = "hii mahi";
   // pass the data in the form of object as an second argunment
-  res.render("rolldice.ejs", { data , name});
+  res.render("rolldice.ejs", { data, name });
+});
+
+app.get("/ig/:username", (req, res) => {
+  let { username } = req.params;
+  //  console.log(username);
+  res.render("instatemp.ejs", { username });
 });
