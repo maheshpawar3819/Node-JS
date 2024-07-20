@@ -20,5 +20,9 @@ let buf_data = fs.readFileSync("note.txt");
 
 //converting this buffer data into string
 
-let stringdata=buf_data.toString();
-console.log(stringdata);
+// let stringdata=buf_data.toString();
+// console.log(stringdata);
+
+//Rename the file
+
+fs.renameSync("note.txt","readwrite.txt");
