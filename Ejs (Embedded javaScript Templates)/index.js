@@ -29,8 +29,13 @@ app.get("/dice", (req, res) => {
 });
 
 app.get("/ig/:username", (req, res) => {
-  let followers=["Sairaj","Sneha","Shiv","Ashwini","Ankita","Rohan"];
   let { username } = req.params;
-  //  console.log(username);
-  res.render("instatemp.ejs", { username , followers});
+  let instadata = require("./views/demodata.json");
+  let data = instadata[username];
+  // console.log(data);
+  if (data) {
+    res.render("instatemp.ejs", { data });
+  } else {
+    res.render("error.ejs");
+  }
 });
