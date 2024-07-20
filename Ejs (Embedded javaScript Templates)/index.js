@@ -3,6 +3,10 @@ const app = express();
 const path = require("path");
 const port = 8080;
 
+//add static files like css and js .the public folder is default folder
+app.use(express.static(path.join(__dirname, "/public/script")));
+app.use(express.static(path.join(__dirname, "/public/style")));
+
 //requireing ejs
 app.set("view engine", "ejs");
 //for running server globaly
