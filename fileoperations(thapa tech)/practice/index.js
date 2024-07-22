@@ -25,4 +25,4 @@ let buf_data = fs.readFileSync("note.txt");
 
 //Rename the file
 
-fs.renameSync("note.txt","readwrite.txt");
+fs.renameSync("note.txt","readwriten.txt");
