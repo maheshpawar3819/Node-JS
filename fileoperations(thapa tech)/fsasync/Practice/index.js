@@ -10,7 +10,7 @@ const fs=require("fs");
 //     console.log("add data ");
 // })
 
-fs.readFile("Data.txt","utf-8",(error,data) => {
-    console.log(data);
-    console.log(error);
-})
+// fs.readFile("Data.txt","utf-8",(error,data) => {
+//     console.log(data);
+//     // console.log(error);
+// })
