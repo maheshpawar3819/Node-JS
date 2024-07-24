@@ -9,6 +9,7 @@
   "author": "Mahesh Pawar",
   "license": "ISC",
   "dependencies": {
+    "password-validator": "^5.3.0",
     "validator": "^13.12.0"
   }
 }
