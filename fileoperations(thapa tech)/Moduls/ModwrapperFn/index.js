@@ -1,4 +1,4 @@
-//Module Wrapper Function is the function just like IEFE - Immediatly Envoked Function Expression the scope is private scope behind seends node will be wrapup all code in the Module Wrapper Fuction.
+//Module Wrapper Function is the function just like IIFE - Immediatly Invoked Function Expression the scope is private scope behind seends node will be wrapup all code in the Module Wrapper Fuction.
 
 /*
  This paramenters are found in module wrapper function 
