@@ -7,6 +7,15 @@ const port = 8080;
 const server = http.createServer((req, res) => {
   //handling routing
   // console.log(req.url)
+
+  const data = fs.readFileSync(
+    `${__dirname}/Userapi/userapi.json`,
+    "utf-8",
+    (error, data) => {
+      console.log(data);
+    }
+  );
+
   if (req.url == "/") {
     res.end("Hello from the server side :)");
   } else if (req.url == "/aboutus") {
@@ -14,10 +23,8 @@ const server = http.createServer((req, res) => {
   } else if (req.url == "/contact") {
     res.end("hello from contact page :)");
   } else if (req.url == "/userapi") {
-    fs.readFile(`${__dirname}/Userapi/userapi.json`, "utf-8", (error, data) => {
-      console.log(data);
-    });
-    res.end("hello from user api side");
+    res.writeHead(200, { "content-type": "application/json" });
+    res.end(data);
   } else {
     res.writeHead(404, { "content-type": "text/html" });
     res.end("<h1>404 Error Page does not exist</h1>");
