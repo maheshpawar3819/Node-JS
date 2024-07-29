@@ -13,18 +13,22 @@ const server = http.createServer();
 server.on("request", (req, res) => {
   const rstream = fs.createReadStream("input.txt");
 
-  rstream.on("data", (chunkdata) => {
-    res.write(chunkdata);
-  });
+  //another way recomended way
 
-  rstream.on("end", () => {
-    res.end();
-  });
+  rstream.pipe(res);
 
-  rstream.on("error", (error) => {
-    console.log(error);
-    res.end("Error was found");
-  });
+//   rstream.on("data", (chunkdata) => {
+//     res.write(chunkdata);
+//   });
+
+//   rstream.on("end", () => {
+//     res.end();
+//   });
+
+//   rstream.on("error", (error) => {
+//     console.log(error);
+//     res.end("Error was found");
+//   });
 });
 
 server.listen(port, () => {
