@@ -11,11 +11,19 @@ const port = 8080;
 const server = http.createServer();
 
 server.on("request", (req, res) => {
-  fs.readFile("input.txt", "utf-8", (err, data) => {
-    if (err) {
-      return console.log(err);
-    }
-    return res.end(data.toString());
+  const rstream = fs.createReadStream("input.txt");
+
+  rstream.on("data", (chunkdata) => {
+    res.write(chunkdata);
+  });
+
+  rstream.on("end", () => {
+    res.end();
+  });
+
+  rstream.on("error", (error) => {
+    console.log(error);
+    res.end("Error was found");
   });
 });
 
