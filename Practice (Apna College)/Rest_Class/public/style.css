@@ -16,3 +16,8 @@ h3{
 h4{
     color: orangered;
 }
+
+p{
+    color: rgb(228, 59, 228);
+    font-weight: 900;
+}
