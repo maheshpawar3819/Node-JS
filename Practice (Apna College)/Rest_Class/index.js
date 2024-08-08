@@ -61,6 +61,15 @@ app.get("/posts/:id", (req, res) => {
   res.render("show.ejs", { post });
 });
 
+app.patch("/posts/:id", (req, res) => {
+  let { id } = req.params;
+  let newcontent = req.body.content;
+  let post = posts.find((p) => id === p.id);
+  post.content=newcontent;
+  console.log(post);
+  res.send("patch request is working");
+});
+
 app.listen(port, () => {
   console.log("Server is listning on", port);
 });
