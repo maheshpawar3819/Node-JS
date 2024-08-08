@@ -9,7 +9,7 @@
   <body>
     <h1>Posts</h1>
     <% for(post of posts) { %>
-    <div>
+    <div class="posts">
       <h3>@<%= post.username %></h3>
       <h4><%= post.content %></h4>
       <a href="http://localhost:8080/posts/<%= post.id %>">See in detail</a>
