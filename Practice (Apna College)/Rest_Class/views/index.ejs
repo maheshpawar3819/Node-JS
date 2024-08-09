@@ -14,8 +14,14 @@
       <h4><%= post.content %></h4>
       <a href="http://localhost:8080/posts/<%= post.id %>">See in detail</a>
       <a href="http://localhost:8080/posts/<%= post.id %>/edit">Edit</a>
+      <hr />
+      <form action="/posts/<%= post.id %>/?_method=DELETE" method="post">
+        <button>Delete Post</button>
+      </form>
     </div>
     <% } %>
-    <a href="http://localhost:8080/posts/new" target="_blank">Create New Post</a>
+    <a href="http://localhost:8080/posts/new" target="_blank"
+      >Create New Post</a
+    >
   </body>
 </html>
