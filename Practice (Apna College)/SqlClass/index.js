@@ -1,4 +1,24 @@
 const { faker } = require("@faker-js/faker");
+require("dotenv").config();
+const mysql = require("mysql2");
+
+const connection = mysql.createConnection({
+  host: "localhost",
+  user: "root",
+  database: "demo",
+  password: process.env.DB_PASSWORD,
+});
+
+try {
+  connection.query("SHOW TABLES", (err, result) => {
+    if (err) throw err;
+    console.log(result);
+  });
+} catch (err) {
+  console.log(err);
+}
+
+connection.end();
 
 const getRandomUser = () => {
   return {
@@ -9,4 +29,4 @@ const getRandomUser = () => {
   };
 };
 
-console.log(getRandomUser());
+// console.log(getRandomUser());
