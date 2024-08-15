@@ -9,10 +9,18 @@ const connection = mysql.createConnection({
   password: process.env.DB_PASSWORD,
 });
 
+//ADD DETA INTO THE TABLE
+let qu = "INSERT INTO user (id,username,email,password) VALUES ?";
+let users = [
+  ["123a", "123_newsera", "abc@gmail.com", "abc"],
+  ["123b", "123_newseb", "abcb@gmail.com", "abcb"],
+];
+
 try {
-  connection.query("SHOW TABLES", (err, result) => {
+  connection.query(qu, [users], (err, result) => {
     if (err) throw err;
     console.log(result);
+    // console.log(result.length);
   });
 } catch (err) {
   console.log(err);
