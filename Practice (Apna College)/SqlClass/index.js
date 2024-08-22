@@ -1,24 +1,34 @@
 const { faker } = require("@faker-js/faker");
 require("dotenv").config();
 const mysql = require("mysql2");
-const express=require("express");
-const app=express();
-const port=8080;
+const express = require("express");
+const app = express();
+const port = 8080;
 
-app.listen(port,()=> {
-  console.log("Server is listning",port);
-})
+app.listen(port, () => {
+  console.log("Server is listning", port);
+});
 
-app.get("/",(req,res) => {
-  res.send("welcome to home page");
-})
+app.get("/", (req, res) => {
+  let q=`SELECT COUNT(*) FROM user`;
+  try {
+    connection.query(q,(err,result) => {
+      if(err) throw err;
+      console.log(result);
+      res.send(result);
+    })
+  } catch (err) {
+    console.log(err);
+    res.send("some error in database");  
+  }
+});
 
 const connection = mysql.createConnection({
   host: "localhost",
   user: "root",
   database: "demo",
   password: process.env.DB_PASSWORD,
-}); 
+});
 
 const getRandomUser = () => {
   return [
