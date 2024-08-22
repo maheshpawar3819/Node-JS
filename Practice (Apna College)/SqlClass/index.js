@@ -3,23 +3,28 @@ require("dotenv").config();
 const mysql = require("mysql2");
 const express = require("express");
 const app = express();
+const path = require("path");
 const port = 8080;
+
+app.set("view engine", "ejs");
+app.set("views", path.join(__dirname, "/views"));
 
 app.listen(port, () => {
   console.log("Server is listning", port);
 });
 
 app.get("/", (req, res) => {
-  let q=`SELECT COUNT(*) FROM user`;
+  let q = `SELECT COUNT(*) FROM user`;
   try {
-    connection.query(q,(err,result) => {
-      if(err) throw err;
-      console.log(result);
-      res.send(result);
-    })
+    connection.query(q, (err, result) => {
+      if (err) throw err;
+      // console.log(result[0]["COUNT(*)"]);
+      let count = result[0]["COUNT(*)"];
+      res.render("home.ejs", { count });
+    });
   } catch (err) {
     console.log(err);
-    res.send("some error in database");  
+    res.send("some error in database");
   }
 });
 
