@@ -4,6 +4,7 @@ const mysql = require("mysql2");
 const express = require("express");
 const app = express();
 const path = require("path");
+const { chown } = require("fs");
 const port = 8080;
 
 app.set("view engine", "ejs");
@@ -27,6 +28,21 @@ app.get("/", (req, res) => {
     res.send("some error in database");
   }
 });
+
+//rout to show data of users
+
+app.get("/user",(req,res) => {
+  let q=`SELECT * FROM user`
+  try{
+    connection.query(q,(err,users) => {
+      if(err) throw err;
+      res.render("showusers.ejs",{users});
+    })
+  }catch (err){
+    console.log(err);
+    res.send(`Someting wrong in detabase`);
+  }
+})
 
 const connection = mysql.createConnection({
   host: "localhost",
