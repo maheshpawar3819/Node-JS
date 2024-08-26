@@ -25,11 +25,30 @@ const User = mongoose.model("User", userSchema);
 
 // Update Commands
 
-User.updateMany({age:21},{city:"Mumbai"}).then((res) => {
+//find and update
+
+User.findByIdAndUpdate("66cc1c804ab01435447a6167",{email:"maheshp56@outlook.com"},{new:true})
+  .then((res) => {
     console.log(res);
-}).catch(() => {
+  })
+  .catch(() => {
     console.log("something wrong");
-});
+  });
+
+//new retruns the modify document rather than the old document
+// User.findOneAndUpdate({ name: "Sairaj" }, { city: "Pune" }, { new: true })
+//   .then((res) => {
+//     console.log(res);
+//   })
+//   .catch(() => {
+//     console.log("something wrong");
+//   });
+
+// User.updateMany({age:21},{city:"Mumbai"}).then((res) => {
+//     console.log(res);
+// }).catch(() => {
+//     console.log("something wrong");
+// });
 
 // User.updateOne({name:"Shubham"},{city:"Pune"}).then((res) => {
 //     console.log(res);
@@ -37,7 +56,7 @@ User.updateMany({age:21},{city:"Mumbai"}).then((res) => {
 //     console.log("something wrong");
 // })
 
-//find by id 
+//find by id
 // User.findById("66cc1ed14365d4588140f97d").then((res) => {
 //     console.log(res);
 // }).catch(() => {
@@ -50,7 +69,6 @@ User.updateMany({age:21},{city:"Mumbai"}).then((res) => {
 // }).catch(() => {
 //     console.log("Something wrong in db");
 // })
-
 
 //find all documents
 // User.find({}).then((res) => {
