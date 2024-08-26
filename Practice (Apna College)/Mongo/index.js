@@ -19,3 +19,6 @@ const userSchema=mongoose.Schema({
     age:Number,
     city:String
 })
+
+// const User=mongoose.model("User",userSchema);
+const Employee=mongoose.model("Employee",userSchema);
