@@ -23,17 +23,43 @@ const userSchema = mongoose.Schema({
 const User = mongoose.model("User", userSchema);
 // const Employee=mongoose.model("Employee",userSchema);
 
+//Delete Commands
+
+// find and delete
+
+User.findOneAndDelete({ name: "Shrinath" })
+  .then((res) => console.log(res))
+  .catch(() => console.log("something wrong"));
+
+// User.findByIdAndDelete("66cc1c804ab01435447a6169").then((res) => {
+//   console.log(res);
+// }).catch(() => {
+//   console.log("something wrong");
+// })
+
+// User.deleteMany({age:{$gt:21}}).then((res) => {
+//   console.log(res);
+// }).catch(() => {
+//   console.log("Something wrong in detabase");
+// })
+
+// User.deleteOne({name:"Samir"}).then((res) => {
+//   console.log(res);
+// }).catch(() => {
+//   console.log("something wrong in detabase");
+// })
+
 // Update Commands
 
 //find and update
 
-User.findByIdAndUpdate("66cc1c804ab01435447a6167",{email:"maheshp56@outlook.com"},{new:true})
-  .then((res) => {
-    console.log(res);
-  })
-  .catch(() => {
-    console.log("something wrong");
-  });
+// User.findByIdAndUpdate("66cc1c804ab01435447a6167",{email:"maheshp56@outlook.com"},{new:true})
+//   .then((res) => {
+//     console.log(res);
+//   })
+//   .catch(() => {
+//     console.log("something wrong");
+//   });
 
 //new retruns the modify document rather than the old document
 // User.findOneAndUpdate({ name: "Sairaj" }, { city: "Pune" }, { new: true })
