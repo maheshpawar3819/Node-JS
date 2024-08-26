@@ -20,5 +20,35 @@ const userSchema=mongoose.Schema({
     city:String
 })
 
-// const User=mongoose.model("User",userSchema);
-const Employee=mongoose.model("Employee",userSchema);
+const User=mongoose.model("User",userSchema);
+// const Employee=mongoose.model("Employee",userSchema);
+
+const user1=new User({
+    name:"Mahesh",
+    email:"mahesh56@gmail.com",
+    age:23,
+    city:"Pune"
+})
+
+const user2=new User({
+    name:"Samir",
+    email:"samirb54@gmail.com",
+    age:22,
+    city:"Kolhapur"
+})
+
+const user3=new User({
+    name:"Shubham",
+    email:"Shubhama3@gmail.com",
+    age:20,
+    city:"Phaltan"
+})
+
+//save method returns a promice
+user1.save();
+// user2.save();
+user3.save().then((res) => {
+    console.log(res);
+}).catch((err) => {
+    console.log(err,"Someting Wrong");
+})
