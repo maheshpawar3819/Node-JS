@@ -27,9 +27,9 @@ const User = mongoose.model("User", userSchema);
 
 // find and delete
 
-User.findOneAndDelete({ name: "Shrinath" })
-  .then((res) => console.log(res))
-  .catch(() => console.log("something wrong"));
+// User.findOneAndDelete({ name: "Shrinath" })
+//   .then((res) => console.log(res))
+//   .catch(() => console.log("something wrong"));
 
 // User.findByIdAndDelete("66cc1c804ab01435447a6169").then((res) => {
 //   console.log(res);
