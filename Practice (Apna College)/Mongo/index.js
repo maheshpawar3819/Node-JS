@@ -23,8 +23,21 @@ const userSchema = mongoose.Schema({
 const User = mongoose.model("User", userSchema);
 // const Employee=mongoose.model("Employee",userSchema);
 
-//find by id 
+// Update Commands
 
+User.updateMany({age:21},{city:"Mumbai"}).then((res) => {
+    console.log(res);
+}).catch(() => {
+    console.log("something wrong");
+});
+
+// User.updateOne({name:"Shubham"},{city:"Pune"}).then((res) => {
+//     console.log(res);
+// }).catch(() => {
+//     console.log("something wrong");
+// })
+
+//find by id 
 // User.findById("66cc1ed14365d4588140f97d").then((res) => {
 //     console.log(res);
 // }).catch(() => {
