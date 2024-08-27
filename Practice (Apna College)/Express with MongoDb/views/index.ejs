@@ -17,9 +17,16 @@
       <p><i>From :<%= chat.from %></i></p>
       <div class="msg">
         <p><%= chat.msg %></p>
+        <form action="/chats/<%= chat._id %>/edit" method="get">
+          <button>Edit</button>
+        </form>
       </div>
       <p><i>Received By :<%= chat.to %></i></p>
       <hr />
+      <p>Time : <%= chat.created_at.toString().split(" ")[4] %></p>
+      <p>
+        Date : <%= chat.created_at.toString().split(" ").slice(0,4).join("-")%>
+      </p>
     </div>
     <% }%>
   </body>
