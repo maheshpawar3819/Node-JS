@@ -1,0 +1,16 @@
+.chat {
+    padding: 5px;
+    margin: 5px;
+    background-color: #EBD3F8;
+    box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+    display: inline-block;
+}
+
+.msg {
+    color: #fff;
+    background-color: rgb(151, 68, 228);
+    padding: 0px 5px 0px 5px;
+    border-radius: 5px;
+    box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+
+}

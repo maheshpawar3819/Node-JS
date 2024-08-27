@@ -7,6 +7,7 @@ const Chat = require("./models/chats");
 
 app.set("views", path.join(__dirname, "views"));
 app.set("view engine", "ejs");
+app.use(express.static(path.join(__dirname,"public")))
 
 main()
   .then((res) => {
@@ -33,9 +34,16 @@ async function main() {
 //     console.log(err);
 // })
 
+
 app.get("/", (req, res) => {
   res.send("all things are working fine");
 });
+
+//Index rout
+app.get("/chats",async (req,res) =>{
+    let chats= await Chat.find();
+    res.render("index.ejs",{chats});
+})
 
 app.listen(port, () => {
   console.log("Listing on port :", port);
