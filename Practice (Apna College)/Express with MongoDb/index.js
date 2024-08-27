@@ -8,6 +8,8 @@ const Chat = require("./models/chats");
 app.set("views", path.join(__dirname, "views"));
 app.set("view engine", "ejs");
 app.use(express.static(path.join(__dirname, "public")));
+//for parsing data
+app.use(express.urlencoded({ extended: true }));
 
 main()
   .then((res) => {
@@ -48,6 +50,28 @@ app.get("/chats", async (req, res) => {
 
 app.get("/chats/new", (req, res) => {
   res.render("new.ejs");
+});
+
+// Create rout
+
+app.post("/chats", (req, res) => {
+  let { from, to, msg } = req.body;
+  let newChat = new Chat({
+    from: from,
+    to: to,
+    msg: msg,
+    created_at: new Date(),
+  });
+  //   console.log(newChat);
+  newChat
+    .save()
+    .then((res) => {
+      console.log("chat was save.");
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+  res.redirect("/chats");
 });
 
 app.listen(port, () => {
