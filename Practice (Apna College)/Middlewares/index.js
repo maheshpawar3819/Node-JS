@@ -2,13 +2,10 @@ const express = require("express");
 const app = express();
 const port = 8080;
 
-app.use((req,res) =>{
-    const {query}=req.query;
-    console.log(query);
+app.use((req,res,next) =>{
     console.log("hii i am middleware");
-    res.send("middleware finished");
+    next();
 })
-
 
 
 app.get("/",(req,res) => {
